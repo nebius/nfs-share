@@ -33,6 +33,6 @@ sudo mount <ip_address>:/nfs /nfs
 
 To get best perfomance from the network you may change MTU to 8910. For Ubuntu 22.04 LTS:
 ```bash
-netplan set ethernets.eth0.mtu=${mtu_size}
+netplan set ethernets.eth0.mtu=8910
 netplan apply
 ```
