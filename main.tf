@@ -14,8 +14,8 @@ resource "nebius_compute_instance" "nfs_server" {
   zone           = "eu-north1-c"
   
   resources {
-    cores  = "8"
-    memory = "16"
+    cores  = "16"
+    memory = "32"
   }
 
   boot_disk {
