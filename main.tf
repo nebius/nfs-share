@@ -1,6 +1,5 @@
 
 resource "nebius_compute_disk" "nfs" {
-  name       = "nfs-disk"
   type       = "network-ssd-io-m3"
   zone       = var.region
   size       = var.nfs_size
@@ -9,9 +8,8 @@ resource "nebius_compute_disk" "nfs" {
 
 
 resource "nebius_compute_instance" "nfs_server" {
-  name           = "nfs-share"
   platform_id    = "standard-v2"
-  zone           = "eu-north1-c"
+  zone           = var.region
   
   resources {
     cores  = "16"
@@ -37,7 +35,7 @@ resource "nebius_compute_instance" "nfs_server" {
 
   metadata = {
     user-data = templatefile(
-      "./files/cloud-config.yaml.tftpl", {
+      "${path.module}//files/cloud-config.yaml.tftpl", {
         nfs_ip_range  = var.nfs_ip_range
         nfs_path      = var.nfs_path
         mtu_size      = var.mtu_size

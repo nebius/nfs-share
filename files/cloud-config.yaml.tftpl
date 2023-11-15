@@ -13,6 +13,7 @@ runcmd:
 - mkdir -p ${nfs_path}
 - mkfs.ext4 /dev/vdb
 - mount -o rw /dev/vdb ${nfs_path}
+- echo "/dev/vdb /nfs ext4  rw,relatime" | tee -a /etc/fstab
 - chown nobody:nogroup ${nfs_path}
 - chmod 777 ${nfs_path}
 - echo "${nfs_path} ${nfs_ip_range}(rw,async,no_subtree_check)" >> /etc/exports

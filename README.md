@@ -13,15 +13,27 @@ The module includes the following files and directories:
 - `files/`
   - `cloud-config.sh` - A shell script that initializes the NFS server on the virtual machine.
 
+
+## Configure Terraform for Nebius Cloud
+
+- Install [NCP CLI](https://nebius.ai/docs/cli/quickstart)
+- Add environment variables for terraform authentication in Nebuis Cloud
+
+```
+export YC_TOKEN=$(ncp iam create-token)
+```
+
+
 ## Usage
+
 
 To use this module in your Terraform environment, you will need to create a Terraform configuration for example file `terraform.tfvars` with example conent:
 
 ```hcl
-folder_id = "<folder_id>"
+folder_id = "<folder_id>" # folder where you want to create your resources
 subnet_id = "<subnet_id>" # subnet_id where the VM should be created
-nfs_size = "1209" # must be divisible by 93
-nfs_ip_range = "<internal_network>" #network address, eg 10.0.0.0/16, where you want you NFS share to be accessible
+nfs_size = "930" # must be divisible by 93
+nfs_ip_range = "<internal_network>" # network address, eg 10.0.0.0/16, where you want you NFS share to be accessible
 sshkey = "<ssh_key>"
 ```
 
