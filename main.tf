@@ -8,6 +8,7 @@ resource "nebius_compute_disk" "nfs" {
 
 
 resource "nebius_compute_instance" "nfs_server" {
+  name = var.instance_name
   platform_id    = "standard-v2"
   zone           = var.region
   
