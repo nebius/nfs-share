@@ -15,6 +15,12 @@ variable "region" {
   default     = "eu-north1-c"
 }
 
+variable "instance_name" {
+  type        = string
+  description = "Instance name for the nfs server."
+  default     = "nfs-share"
+}
+
 variable "username" {
   type        = string
   description = "Username for ssh"
